@@ -2396,6 +2396,42 @@ body .panel p {
 .solar-page .page-section {
   padding-top: 120px;
 }
+body.moon-page {
+  background: radial-gradient(circle at 20% 10%, #2a324b 0%, #05060b 32%, #000000 100%);
+  color: #f5f5f5;
+}
+.moon-section {
+  position: relative;
+  overflow: hidden;
+}
+.moon-model-container {
+  width: 100%;
+  max-width: 760px;
+  height: 440px;
+  margin: 0 auto 24px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, rgba(50, 70, 120, 0.22), rgba(0, 0, 0, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.30);
+}
+.moon-model-container model-viewer {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+}
+.moon-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 120px 120px, 45px 45px, 18px 18px;
+  background-position: 0 0, 30px 80px, 10px 20px;
+  opacity: 0.34;
+  filter: blur(0.2px);
+}
 .sat-popup {
   position: fixed;
   left: 50%;
