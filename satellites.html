@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Akasha Explorer — Satellites</title>
+</head>
+<body class="satellites-page">
+  <header class="page-header">
+    <a class="brand" href="index.html">Akasha Explorer</a>
+    <nav class="page-nav">
+      <a href="index.html">Home</a>
+      <a href="solar.html">Solar System</a>
+      <a class="active" href="satellites.html">Satellites</a>
+      <a href="moon.html">Moon</a>
+    </nav>
+  </header>
+
+  <section class="page-section satellites-section">
+    <div class="isro-header">
+      <div class="isro-badge">ISRO</div>
+      <h1 class="isro-title">Indian Space Missions</h1>
+      <p class="isro-subtitle">India's Presence in Space — Satellites & Upcoming Missions</p>
+    </div>
+
+    <div class="orbit-container">
+      <div class="starfield" id="starfield"></div>
+
+      <div class="earth-wrapper">
+        <div class="earth-glow"></div>
+        <div class="earth-3d" id="earth3d">
+          <div class="earth-surface"></div>
+          <div class="earth-clouds"></div>
+          <div class="earth-atmosphere"></div>
+        </div>
+      </div>
+
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+      <div class="orbit-ring orbit-ring-3"></div>
+      <div class="orbit-ring orbit-ring-4"></div>
+
+      <div class="sat-orbit orbit-1" style="--duration:18s; --tilt:-20deg;">
+        <div class="satellite isro-sat" data-name="Chandrayaan-3" data-type="Lunar Mission" data-year="2023" data-desc="India's third lunar exploration mission. Successfully landed Vikram lander and deployed Pragyan rover near the Moon's south pole on August 23, 2023, making India the first country to do so.">
+          <div class="sat-body">
+            <div class="sat-panel left"></div>
+            <div class="sat-core"></div>
+            <div class="sat-panel right"></div>
+            <div class="sat-antenna"></div>
+          </div>
+          <div class="sat-label">Chandrayaan-3</div>
+        </div>
+      </div>
+
+      <div class="sat-orbit orbit-2" style="--duration:24s; --tilt:15deg;">
+        <div class="satellite isro-sat" data-name="Aditya-L1" data-type="Solar Observatory" data-year="2023" data-desc="India's first solar space observatory, placed in a halo orbit around the L1 Lagrange point. Dedicated to studying solar dynamics, solar wind, and space weather.">
+          <div class="sat-body">
+            <div class="sat-panel left"></div>
+            <div class="sat-core gold"></div>
+            <div class="sat-panel right"></div>
+            <div class="sat-antenna"></div>
+          </div>
+          <div class="sat-label">Aditya-L1</div>
+        </div>
+      </div>
+
+      <div class="sat-orbit orbit-3" style="--duration:30s; --tilt:-35deg;">
+        <div class="satellite isro-sat" data-name="GSAT-20" data-type="Communication Satellite" data-year="2024" data-desc="A high-throughput communication satellite launched by SpaceX Falcon 9. Provides broadband services across India including remote areas and in-flight connectivity.">
+          <div class="sat-body">
+            <div class="sat-panel left wide"></div>
+            <div class="sat-core blue"></div>
+            <div class="sat-panel right wide"></div>
+            <div class="sat-dish"></div>
+          </div>
+          <div class="sat-label">GSAT-20</div>
+        </div>
+      </div>
+
+      <div class="sat-orbit orbit-4" style="--duration:20s; --tilt:40deg;">
+        <div class="satellite isro-sat" data-name="RISAT-2BR2" data-type="Earth Observation" data-year="2020" data-desc="Radar Imaging Satellite with synthetic aperture radar (SAR) capability. Provides all-weather, day-night surveillance and Earth observation for agricultural, forestry and disaster monitoring.">
+          <div class="sat-body">
+            <div class="sat-panel left"></div>
+            <div class="sat-core silver"></div>
+            <div class="sat-panel right"></div>
+            <div class="sat-sar"></div>
+          </div>
+          <div class="sat-label">RISAT-2BR2</div>
+        </div>
+      </div>
+
+      <div class="sat-orbit orbit-5" style="--duration:35s; --tilt:-10deg;">
+        <div class="satellite isro-sat" data-name="NavIC / IRNSS" data-type="Navigation System" data-year="2016–2018" data-desc="India's regional navigation satellite system — a constellation of 7 satellites providing accurate position information over India and surrounding regions up to 1500 km.">
+          <div class="sat-body">
+            <div class="sat-panel left"></div>
+            <div class="sat-core orange"></div>
+            <div class="sat-panel right"></div>
+            <div class="sat-antenna"></div>
+          </div>
+          <div class="sat-label">NavIC</div>
+        </div>
+      </div>
+
+      <div class="sat-orbit orbit-s1" style="--duration:14s; --tilt:60deg;">
+        <div class="satellite shadow-sat" data-name="ISS" data-type="International Space Station" data-year="1998" data-desc="International Space Station">
+          <div class="sat-body-sm"></div>
+        </div>
+      </div>
+      <div class="sat-orbit orbit-s2" style="--duration:22s; --tilt:-55deg;">
+        <div class="satellite shadow-sat" data-name="Hubble" data-type="Space Telescope" data-year="1990" data-desc="Hubble Space Telescope">
+          <div class="sat-body-sm"></div>
+        </div>
+      </div>
+      <div class="sat-orbit orbit-s3" style="--duration:28s; --tilt:30deg;">
+        <div class="satellite shadow-sat" data-name="Starlink" data-type="Communication" data-year="2019" data-desc="SpaceX Starlink">
+          <div class="sat-body-sm"></div>
+        </div>
+      </div>
+      <div class="sat-orbit orbit-s4" style="--duration:16s; --tilt:-70deg;">
+        <div class="satellite shadow-sat" data-name="GPS IIF" data-type="Navigation" data-year="2010" data-desc="US GPS Satellite">
+          <div class="sat-body-sm"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sat-popup" id="satPopup">
+      <button class="sat-popup-close" id="satClose">✕</button>
+      <div class="sat-popup-badge">ISRO</div>
+      <h2 class="sat-popup-name" id="satName">Chandrayaan-3</h2>
+      <div class="sat-popup-meta">
+        <span class="sat-popup-type" id="satType">Lunar Mission</span>
+        <span class="sat-popup-year" id="satYear">2023</span>
+      </div>
+      <p class="sat-popup-desc" id="satDesc">Description here.</p>
+    </div>
+
+    <div class="missions-section">
+      <div class="missions-header">
+        <div class="missions-line"></div>
+        <h2 class="missions-title">Upcoming ISRO Missions</h2>
+        <div class="missions-line"></div>
+      </div>
+
+      <div class="missions-grid">
+
+        <div class="mission-card">
+          <div class="mission-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Gaganyaan_spacecraft_model.jpg/320px-Gaganyaan_spacecraft_model.jpg" alt="Gaganyaan" onerror="this.src='https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=400'">
+            <div class="mission-badge upcoming">2025–26</div>
+          </div>
+          <div class="mission-info">
+            <h3 class="mission-name">Gaganyaan</h3>
+            <span class="mission-type">Human Spaceflight</span>
+            <p class="mission-desc">India's first crewed orbital spacecraft. Will carry 3 Indian astronauts (Gagannauts) to a 400 km low Earth orbit for a 3-day mission. Uncrewed test flights (G1, G2) precede the crewed mission.</p>
+            <div class="mission-tags">
+              <span class="tag">Crewed</span><span class="tag">LEO</span><span class="tag">Historic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chandrayaan-3_logo.png/320px-Chandrayaan-3_logo.png" alt="Chandrayaan-4" onerror="this.src='https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400'">
+            <div class="mission-badge future">2027</div>
+          </div>
+          <div class="mission-info">
+            <h3 class="mission-name">Chandrayaan-4</h3>
+            <span class="mission-type">Lunar Sample Return</span>
+            <p class="mission-desc">A complex mission to land on the Moon, collect samples from the lunar surface, and return them safely to Earth — a technological feat achieved only by USA, USSR, and China so far.</p>
+            <div class="mission-tags">
+              <span class="tag">Moon</span><span class="tag">Sample Return</span><span class="tag">Robotic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-img-wrap">
+            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=400" alt="Shukrayaan">
+            <div class="mission-badge future">2028</div>
+          </div>
+          <div class="mission-info">
+            <h3 class="mission-name">Shukrayaan-1</h3>
+            <span class="mission-type">Venus Orbiter</span>
+            <p class="mission-desc">India's first mission to Venus. The orbiter will study Venus's atmosphere, surface, and geology. Planned with a suite of scientific instruments to probe the dense Venusian clouds and understand planetary evolution.</p>
+            <div class="mission-tags">
+              <span class="tag">Venus</span><span class="tag">Orbiter</span><span class="tag">Atmosphere</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-card">
+          <div class="mission-img-wrap">
+            <img src="https://images.unsplash.com/photo-1614726365952-510103b1bdb8?w=400" alt="Mangalyaan-2">
+            <div class="mission-badge future">2030</div>
+          </div>
+          <div class="mission-info">
+            <h3 class="mission-name">Mangalyaan-2</h3>
+            <span class="mission-type">Mars Orbiter Mission 2</span>
+            <p class="mission-desc">The successor to India's successful MOM-1 (2013). Will carry advanced instruments for more detailed Martian atmosphere, mineral composition, and climate studies. May include a lander component.</p>
+            <div class="mission-tags">
+              <span class="tag">Mars</span><span class="tag">Orbiter</span><span class="tag">Science</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

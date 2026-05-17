@@ -106,9 +106,11 @@ body input[type=radio][name=planet]::after {
 }
 
 body {
-  overflow: hidden;
-  background: black;
-  height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top, #0b1223 0%, #020202 55%, #000000 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: #f6f6f6;
   font-family: "Montserrat", sans-serif;
 }
 body .logo {
@@ -2265,4 +2267,405 @@ body .panel p {
   color: #a0a0a0;
   font-size: 12px;
   line-height: 20px;
+}
+/* Homepage and shared page layout styles */
+.home-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 140px 24px 72px;
+  text-align: center;
+}
+.home-header {
+  margin-bottom: 42px;
+}
+.home-brand span {
+  display: block;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.home-brand small {
+  display: block;
+  margin-top: 8px;
+  color: #f39041;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.home-header p {
+  margin: 16px auto 0;
+  max-width: 720px;
+  color: #d6d6d6;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.home-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.home-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 300px;
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.home-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(243, 144, 65, 0.35);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+}
+.home-card-icon {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+}
+.home-card-icon .fa {
+  color: #f39041;
+  font-size: 48px;
+}
+.home-card h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.home-card p {
+  margin: 0;
+  color: #d0d0d0;
+  line-height: 1.7;
+}
+.page-header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 36px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.page-header .brand {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.page-header .brand:hover {
+  opacity: 0.9;
+}
+.page-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.page-nav a {
+  color: #d6d6d6;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+.page-nav a:hover,
+.page-nav a.active {
+  color: #f39041;
+}
+.page-section {
+  padding-top: 120px;
+  min-height: 100vh;
+}
+.satellites-section,
+.moon-section,
+.solar-page .page-section {
+  padding-top: 120px;
+}
+.sat-popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: min(520px, calc(100% - 40px));
+  max-width: 520px;
+  padding: 30px 24px;
+  background: rgba(6, 12, 24, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.sat-popup.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+.sat-popup-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.sat-popup-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  color: #f39041;
+  border: 1px solid rgba(243, 144, 65, 0.3);
+  border-radius: 999px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.sat-popup-name {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+.sat-popup-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.sat-popup-meta span {
+  color: #d6d6d6;
+  font-size: 13px;
+}
+.sat-popup-desc {
+  color: #c9c9c9;
+  line-height: 1.8;
+}
+.missions-section {
+  max-width: 1240px;
+  margin: 60px auto 0;
+  padding: 0 22px 80px;
+}
+.missions-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.missions-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.missions-title {
+  margin: 0;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.missions-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.mission-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.mission-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.mission-img-wrap img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.mission-badge {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 12px;
+}
+.mission-badge.future { background: #2d2f4d; }
+.mission-badge.upcoming { background: #f39041; }
+.mission-info {
+  padding: 22px;
+}
+.mission-name {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+.mission-type {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #f39041;
+  font-size: 13px;
+}
+.mission-desc {
+  color: #d1d1d1;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.mission-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(243, 144, 65, 0.12);
+  color: #f7cfab;
+  font-size: 12px;
+}
+.moon-page-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.moon-header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+.moon-eyebrow {
+  color: #f39041;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+.moon-title {
+  margin: 0;
+  font-size: 42px;
+}
+.moon-subtitle {
+  margin: 12px auto 0;
+  max-width: 560px;
+  color: #d0d0d0;
+  line-height: 1.8;
+}
+.moon-scene {
+  position: relative;
+  min-height: 520px;
+  margin-bottom: 48px;
+}
+.moon-3d-wrap {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+.moon-3d {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e9e9e9, #999, #222);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.12), 0 40px 80px rgba(0, 0, 0, 0.4);
+}
+.moon-craters .crater {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.24);
+  border-radius: 50%;
+}
+.crater.c1 { width: 52px; height: 52px; left: 22%; top: 22%; }
+.crater.c2 { width: 38px; height: 38px; left: 63%; top: 18%; }
+.crater.c3 { width: 48px; height: 48px; left: 72%; top: 52%; }
+.crater.c4 { width: 30px; height: 30px; left: 28%; top: 60%; }
+.crater.c5 { width: 36px; height: 36px; left: 48%; top: 72%; }
+.crater.c6 { width: 26px; height: 26px; left: 12%; top: 44%; }
+.moon-orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 450px;
+  height: 450px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.moon-stars {
+  position: absolute;
+  inset: 0;
+}
+.moon-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.moon-stat {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.stat-val {
+  display: block;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.stat-label {
+  color: #c7c7c7;
+  font-size: 13px;
+}
+.moon-desc-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.moon-desc-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: 24px;
+}
+.moon-desc-icon {
+  font-size: 28px;
+  margin-bottom: 18px;
+  display: inline-flex;
+}
+.moon-desc-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.moon-desc-content p {
+  margin: 0;
+  color: #d0d0d0;
+  line-height: 1.75;
+}
+@media (max-width: 820px) {
+  .page-header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 18px 20px; }
+  .home-shell { padding-top: 180px; }
+  .page-section { padding-top: 160px; }
 }
