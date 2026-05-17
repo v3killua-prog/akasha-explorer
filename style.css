@@ -2404,22 +2404,6 @@ body.moon-page {
   position: relative;
   overflow: hidden;
 }
-.moon-model-container {
-  width: 100%;
-  max-width: 760px;
-  height: 440px;
-  margin: 0 auto 24px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: radial-gradient(circle at top, rgba(50, 70, 120, 0.22), rgba(0, 0, 0, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.30);
-}
-.moon-model-container model-viewer {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-}
 .moon-stars {
   position: absolute;
   inset: 0;
@@ -2655,6 +2639,7 @@ body.moon-page {
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
+  transform-origin: center center;
   animation: rotateMoon 16s linear infinite;
   box-shadow: inset 0 0 90px rgba(255, 255, 255, 0.18), inset 0 0 40px rgba(0, 0, 0, 0.3), 0 30px 100px rgba(0, 0, 0, 0.45);
 }
@@ -2696,16 +2681,6 @@ body.moon-page {
   filter: blur(10px);
   mix-blend-mode: screen;
   animation: highlightShift 16s linear infinite;
-}
-.moon-orbit-ring {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 450px;
-  height: 450px;
-  border: 1px dashed rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
 }
 .moon-particle {
   position: absolute;
