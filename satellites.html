@@ -25,6 +25,42 @@
       <p class="isro-subtitle">India's Presence in Space — Satellites & Upcoming Missions</p>
     </div>
 
+    <div class="satellite-filter-section">
+      <h3 class="filter-title">Filter Satellites</h3>
+      <div class="radio-input-wrapper">
+        <label class="label">
+          <input value="all" name="satellite-filter" id="filter-all" class="radio-input" type="radio" checked>
+          <div class="radio-design"></div>
+          <div class="label-text">All Satellites</div>
+        </label>
+        <label class="label">
+          <input value="chandrayaan-3" name="satellite-filter" id="filter-chandrayaan" class="radio-input" type="radio">
+          <div class="radio-design"></div>
+          <div class="label-text">Chandrayaan-3</div>
+        </label>
+        <label class="label">
+          <input value="aditya-l1" name="satellite-filter" id="filter-aditya" class="radio-input" type="radio">
+          <div class="radio-design"></div>
+          <div class="label-text">Aditya-L1</div>
+        </label>
+        <label class="label">
+          <input value="gsat-20" name="satellite-filter" id="filter-gsat" class="radio-input" type="radio">
+          <div class="radio-design"></div>
+          <div class="label-text">GSAT-20</div>
+        </label>
+        <label class="label">
+          <input value="risat" name="satellite-filter" id="filter-risat" class="radio-input" type="radio">
+          <div class="radio-design"></div>
+          <div class="label-text">RISAT-2BR2</div>
+        </label>
+        <label class="label">
+          <input value="navic" name="satellite-filter" id="filter-navic" class="radio-input" type="radio">
+          <div class="radio-design"></div>
+          <div class="label-text">NavIC/IRNSS</div>
+        </label>
+      </div>
+    </div>
+
     <div class="orbit-container">
       <div class="starfield" id="starfield"></div>
 
@@ -43,7 +79,7 @@
       <div class="orbit-ring orbit-ring-4"></div>
 
       <div class="sat-orbit orbit-1" style="--duration:18s; --tilt:-20deg;">
-        <div class="satellite isro-sat" data-name="Chandrayaan-3" data-type="Lunar Mission" data-year="2023" data-desc="India's third lunar exploration mission. Successfully landed Vikram lander and deployed Pragyan rover near the Moon's south pole on August 23, 2023, making India the first country to do so.">
+        <div class="satellite isro-sat" data-name="Chandrayaan-3" data-type="Lunar Mission" data-year="2023" data-desc="India's third lunar exploration mission. Successfully landed Vikram lander and deployed Pragyan rover near the Moon's south pole on August 23, 2023, making India the first country to do so." data-filter="chandrayaan-3">
           <div class="sat-body">
             <div class="sat-panel left"></div>
             <div class="sat-core"></div>
@@ -55,7 +91,7 @@
       </div>
 
       <div class="sat-orbit orbit-2" style="--duration:24s; --tilt:15deg;">
-        <div class="satellite isro-sat" data-name="Aditya-L1" data-type="Solar Observatory" data-year="2023" data-desc="India's first solar space observatory, placed in a halo orbit around the L1 Lagrange point. Dedicated to studying solar dynamics, solar wind, and space weather.">
+        <div class="satellite isro-sat" data-name="Aditya-L1" data-type="Solar Observatory" data-year="2023" data-desc="India's first solar space observatory, placed in a halo orbit around the L1 Lagrange point. Dedicated to studying solar dynamics, solar wind, and space weather." data-filter="aditya-l1">
           <div class="sat-body">
             <div class="sat-panel left"></div>
             <div class="sat-core gold"></div>
@@ -67,7 +103,7 @@
       </div>
 
       <div class="sat-orbit orbit-3" style="--duration:30s; --tilt:-35deg;">
-        <div class="satellite isro-sat" data-name="GSAT-20" data-type="Communication Satellite" data-year="2024" data-desc="A high-throughput communication satellite launched by SpaceX Falcon 9. Provides broadband services across India including remote areas and in-flight connectivity.">
+        <div class="satellite isro-sat" data-name="GSAT-20" data-type="Communication Satellite" data-year="2024" data-desc="A high-throughput communication satellite launched by SpaceX Falcon 9. Provides broadband services across India including remote areas and in-flight connectivity." data-filter="gsat-20">
           <div class="sat-body">
             <div class="sat-panel left wide"></div>
             <div class="sat-core blue"></div>
@@ -79,7 +115,7 @@
       </div>
 
       <div class="sat-orbit orbit-4" style="--duration:20s; --tilt:40deg;">
-        <div class="satellite isro-sat" data-name="RISAT-2BR2" data-type="Earth Observation" data-year="2020" data-desc="Radar Imaging Satellite with synthetic aperture radar (SAR) capability. Provides all-weather, day-night surveillance and Earth observation for agricultural, forestry and disaster monitoring.">
+        <div class="satellite isro-sat" data-name="RISAT-2BR2" data-type="Earth Observation" data-year="2020" data-desc="Radar Imaging Satellite with synthetic aperture radar (SAR) capability. Provides all-weather, day-night surveillance and Earth observation for agricultural, forestry and disaster monitoring." data-filter="risat">
           <div class="sat-body">
             <div class="sat-panel left"></div>
             <div class="sat-core silver"></div>
@@ -91,7 +127,7 @@
       </div>
 
       <div class="sat-orbit orbit-5" style="--duration:35s; --tilt:-10deg;">
-        <div class="satellite isro-sat" data-name="NavIC / IRNSS" data-type="Navigation System" data-year="2016–2018" data-desc="India's regional navigation satellite system — a constellation of 7 satellites providing accurate position information over India and surrounding regions up to 1500 km.">
+        <div class="satellite isro-sat" data-name="NavIC / IRNSS" data-type="Navigation System" data-year="2016–2018" data-desc="India's regional navigation satellite system — a constellation of 7 satellites providing accurate position information over India and surrounding regions up to 1500 km." data-filter="navic">
           <div class="sat-body">
             <div class="sat-panel left"></div>
             <div class="sat-core orange"></div>
@@ -124,20 +160,20 @@
       </div>
     </div>
 
-<div class="satellite-feature-section">
-        <h2 class="sat-feature-heading">Featured Satellite Model</h2>
-        <div class="sat-feature-grid">
-          <div class="sat-feature-visual">
-            <iframe title="NISAR Satellite 3D model" src="https://sketchfab.com/models/0103309668d243dbbfab3c8fc6b9683c/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-          </div>
-          <div class="sat-feature-details">
-            <h3>NISAR Satellite ISRO - NASA Joint Mission</h3>
-            <p class="sat-feature-placeholder">Description content will be added here later. This section is reserved for mission details, technical notes, and explanation of the model.</p>
-          </div>
+    <div class="satellite-feature-section">
+      <h2 class="sat-feature-heading">Featured Satellite Model</h2>
+      <div class="sat-feature-grid">
+        <div class="sat-feature-visual">
+          <iframe title="NISAR Satellite 3D model" src="https://sketchfab.com/models/0103309668d243dbbfab3c8fc6b9683c/embed" frameborder="0" allow="autoplay; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+        <div class="sat-feature-details">
+          <h3>NISAR Satellite ISRO - NASA Joint Mission</h3>
+          <p class="sat-feature-placeholder">Description content will be added here later. This section is reserved for mission details, technical notes, and explanation of the model.</p>
         </div>
       </div>
+    </div>
 
-      <div class="sat-popup" id="satPopup">
+    <div class="sat-popup" id="satPopup">
       <button class="sat-popup-close" id="satClose">✕</button>
       <div class="sat-popup-badge">ISRO</div>
       <h2 class="sat-popup-name" id="satName">Chandrayaan-3</h2>
