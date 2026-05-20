@@ -106,10 +106,15 @@ body input[type=radio][name=planet]::after {
 }
 
 body {
-  overflow: hidden;
   background: black;
-  height: 100vh;
   font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+body:not(.home-page):not(.satellites-page):not(.moon-page) {
+  overflow: hidden;
+  height: 100vh;
 }
 body .logo {
   color: white;
@@ -2265,4 +2270,529 @@ body .panel p {
   color: #a0a0a0;
   font-size: 12px;
   line-height: 20px;
+}/* ========================================
+   SHARED: Page Header & Navigation
+   ======================================== */
+.page-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10,10,20,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.page-header .brand {
+  font-size: 18px; font-weight: 700; color: #fff;
+  text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+}
+.page-nav { display: flex; gap: 28px; }
+.page-nav a {
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 400; transition: color 0.3s;
+}
+.page-nav a:hover, .page-nav a.active { color: #fff; }
+
+/* ========================================
+   HOME PAGE
+   ======================================== */
+.home-page { overflow-y: auto; min-height: 100vh; }
+.home-shell {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 100px 30px 40px;
+  background: radial-gradient(ellipse at 50% 20%, #0d1b2a 0%, #000 70%);
+}
+.home-header { text-align: center; margin-bottom: 50px; }
+.home-brand span {
+  display: block; font-size: 42px; font-weight: 700;
+  letter-spacing: 6px; text-transform: uppercase;
+  background: linear-gradient(135deg, #7ef0ff, #a78bfa, #f472b6);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.home-brand small {
+  display: block; font-size: 14px; color: rgba(255,255,255,0.5);
+  letter-spacing: 3px; margin-top: 8px; text-transform: uppercase;
+}
+.home-header p {
+  max-width: 560px; margin: 24px auto 0; color: rgba(255,255,255,0.6);
+  font-size: 15px; line-height: 1.7;
+}
+.home-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 28px; max-width: 960px; width: 100%;
+}
+.home-card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 28px 36px; border-radius: 18px; text-decoration: none;
+  color: #fff; transition: transform 0.35s, box-shadow 0.35s;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+.home-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(120,200,255,0.15);
+}
+.solar-card:hover { border-color: rgba(251,191,36,0.4); }
+.satellites-card:hover { border-color: rgba(99,200,255,0.4); }
+.moon-card:hover { border-color: rgba(200,200,220,0.4); }
+.home-card-icon { font-size: 38px; margin-bottom: 18px; opacity: 0.85; }
+.home-card h2 {
+  font-size: 20px; font-weight: 600; margin: 0 0 10px;
+  letter-spacing: 1px;
+}
+.home-card p {
+  font-size: 13px; color: rgba(255,255,255,0.5); text-align: center;
+  line-height: 1.6; margin: 0;
+}
+.home-footer {
+  margin-top: 60px; padding: 20px; text-align: center;
+  color: rgba(255,255,255,0.3); font-size: 12px;
+}
+
+/* ========================================
+   SATELLITES PAGE
+   ======================================== */
+.satellites-page { overflow-y: auto; min-height: 100vh; }
+.page-section {
+  padding: 100px 30px 60px; max-width: 1200px; margin: 0 auto;
+}
+.isro-header { text-align: center; margin-bottom: 40px; }
+.isro-badge {
+  display: inline-block; padding: 6px 22px; border-radius: 30px;
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff; margin-bottom: 14px;
+}
+.isro-title {
+  font-size: 36px; font-weight: 700; margin: 0 0 8px;
+  letter-spacing: 2px;
+}
+.isro-subtitle { color: rgba(255,255,255,0.5); font-size: 14px; margin: 0; }
+
+/* Satellite Filter */
+.satellite-filter-section { text-align: center; margin-bottom: 36px; }
+.filter-title {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 2px;
+  color: rgba(255,255,255,0.5); margin-bottom: 14px;
+}
+.radio-input-wrapper {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+}
+.radio-input-wrapper .label {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 8px 16px; border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s;
+  font-size: 12px;
+}
+.radio-input-wrapper .label:hover { border-color: rgba(255,255,255,0.4); }
+.radio-input-wrapper .radio-input { display: none; }
+.radio-input-wrapper .radio-design {
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4); position: relative;
+}
+.radio-input-wrapper .radio-input:checked + .radio-design {
+  border-color: #60a5fa;
+}
+.radio-input-wrapper .radio-input:checked + .radio-design::after {
+  content: ""; position: absolute; inset: 2px; border-radius: 50%;
+  background: #60a5fa;
+}
+.label-text { color: rgba(255,255,255,0.7); }
+
+/* Orbit Container */
+.orbit-container {
+  position: relative; width: 100%; height: 520px;
+  margin: 0 auto 50px; overflow: hidden; border-radius: 20px;
+  background: radial-gradient(ellipse at center, #0a1628 0%, #000 80%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.starfield { position: absolute; inset: 0; }
+
+/* Earth */
+.earth-wrapper {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%); z-index: 2;
+}
+.earth-glow {
+  position: absolute; width: 140px; height: 140px;
+  left: 50%; top: 50%; transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(60,160,255,0.3) 0%, transparent 70%);
+}
+.earth-3d {
+  width: 80px; height: 80px; border-radius: 50%; position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a, #0d2137);
+  box-shadow: -6px 6px 14px rgba(0,0,0,0.7), 0 0 30px rgba(60,160,255,0.2);
+  animation: earthRotate 20s linear infinite;
+}
+@keyframes earthRotate { to { filter: hue-rotate(10deg); } }
+.earth-surface, .earth-clouds, .earth-atmosphere {
+  position: absolute; inset: 0; border-radius: 50%;
+}
+.earth-clouds {
+  background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.15) 5%, transparent 30%);
+}
+.earth-atmosphere {
+  box-shadow: inset -4px -4px 10px rgba(0,100,255,0.2);
+}
+
+/* Orbit Rings */
+.orbit-ring {
+  position: absolute; left: 50%; top: 50%;
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 50%;
+  transform: translate(-50%,-50%);
+}
+.orbit-ring-1 { width: 200px; height: 200px; }
+.orbit-ring-2 { width: 300px; height: 300px; }
+.orbit-ring-3 { width: 400px; height: 400px; }
+.orbit-ring-4 { width: 500px; height: 500px; }
+
+/* Satellite Orbits */
+.sat-orbit {
+  position: absolute; left: 50%; top: 50%; width: 300px; height: 300px;
+  transform: translate(-50%,-50%) rotate(var(--tilt,0deg));
+  animation: satOrbit var(--duration,20s) linear infinite;
+}
+.orbit-1 { width: 200px; height: 200px; }
+.orbit-2 { width: 300px; height: 300px; }
+.orbit-3 { width: 400px; height: 400px; }
+.orbit-4 { width: 250px; height: 250px; }
+.orbit-5 { width: 460px; height: 460px; }
+.orbit-s1 { width: 180px; height: 180px; }
+.orbit-s2 { width: 350px; height: 350px; }
+.orbit-s3 { width: 420px; height: 420px; }
+.orbit-s4 { width: 280px; height: 280px; }
+@keyframes satOrbit { to { transform: translate(-50%,-50%) rotate(calc(var(--tilt,0deg) + 360deg)); } }
+
+/* Satellite Body */
+.satellite {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%); cursor: pointer;
+  transition: opacity 0.4s, filter 0.4s;
+}
+.satellite.hidden { opacity: 0.1 !important; pointer-events: none; }
+.sat-body {
+  display: flex; align-items: center; gap: 2px;
+  filter: drop-shadow(0 0 6px rgba(100,200,255,0.4));
+}
+.sat-core {
+  width: 10px; height: 10px; border-radius: 2px;
+  background: linear-gradient(135deg, #ccc, #666);
+}
+.sat-core.gold { background: linear-gradient(135deg, #fbbf24, #b45309); }
+.sat-core.blue { background: linear-gradient(135deg, #60a5fa, #1e40af); }
+.sat-core.silver { background: linear-gradient(135deg, #e5e7eb, #6b7280); }
+.sat-core.orange { background: linear-gradient(135deg, #fb923c, #c2410c); }
+.sat-panel {
+  width: 16px; height: 6px; background: linear-gradient(135deg, #3b82f6, #1e3a5f);
+  border: 1px solid rgba(100,180,255,0.3); border-radius: 1px;
+}
+.sat-panel.wide { width: 22px; }
+.sat-antenna {
+  width: 1px; height: 8px; background: rgba(255,255,255,0.5);
+  position: absolute; top: -8px; left: 50%;
+}
+.sat-dish {
+  width: 6px; height: 6px; border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%; position: absolute; top: -10px; left: 50%;
+  transform: translateX(-50%);
+}
+.sat-sar {
+  width: 8px; height: 3px; background: rgba(200,200,200,0.3);
+  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+}
+.sat-label {
+  position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; font-size: 9px; letter-spacing: 1px;
+  color: rgba(255,255,255,0.6); text-transform: uppercase;
+}
+.sat-body-sm {
+  width: 4px; height: 4px; background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+}
+.shadow-sat { opacity: 0.3; }
+
+/* Satellite Popup */
+.sat-popup {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(10px);
+  opacity: 0; pointer-events: none; transition: opacity 0.35s;
+}
+.sat-popup.visible { opacity: 1; pointer-events: all; }
+.sat-popup-close {
+  position: absolute; top: 30px; right: 30px;
+  background: none; border: none; color: #fff; font-size: 24px;
+  cursor: pointer;
+}
+.sat-popup-badge {
+  font-size: 11px; letter-spacing: 3px; font-weight: 700;
+  padding: 4px 18px; border-radius: 20px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  margin-bottom: 14px;
+}
+.sat-popup-name { font-size: 32px; font-weight: 700; margin: 0 0 12px; }
+.sat-popup-meta { display: flex; gap: 16px; margin-bottom: 18px; }
+.sat-popup-type {
+  font-size: 12px; color: #60a5fa; letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.sat-popup-year {
+  font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px;
+}
+.sat-popup-desc {
+  max-width: 500px; text-align: center; color: rgba(255,255,255,0.6);
+  font-size: 14px; line-height: 1.7;
+}
+
+/* Feature Section */
+.satellite-feature-section { margin: 50px 0; }
+.sat-feature-heading {
+  font-size: 22px; font-weight: 600; text-align: center;
+  letter-spacing: 2px; margin-bottom: 30px;
+}
+.sat-feature-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+  align-items: center;
+}
+.sat-feature-visual {
+  border-radius: 14px; overflow: hidden;
+  aspect-ratio: 16/10; background: #111;
+}
+.sat-feature-visual iframe { width: 100%; height: 100%; border: none; }
+.sat-feature-details h3 {
+  font-size: 18px; font-weight: 600; margin: 0 0 12px;
+}
+.sat-feature-placeholder {
+  color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.7;
+}
+
+/* Missions Section */
+.missions-section { margin-top: 60px; }
+.missions-header {
+  display: flex; align-items: center; gap: 20px;
+  justify-content: center; margin-bottom: 36px;
+}
+.missions-line {
+  flex: 1; max-width: 120px; height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.missions-title {
+  font-size: 20px; font-weight: 600; letter-spacing: 2px;
+  white-space: nowrap; margin: 0;
+}
+.missions-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 24px;
+}
+.mission-card {
+  border-radius: 16px; overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+.mission-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(80,140,255,0.12);
+}
+.mission-img-wrap {
+  position: relative; height: 170px; overflow: hidden;
+  background: #0d1b2a;
+}
+.mission-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.85;
+}
+.mission-badge {
+  position: absolute; top: 12px; right: 12px;
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+}
+.mission-badge.upcoming { background: #22c55e; color: #000; }
+.mission-badge.future { background: #3b82f6; color: #fff; }
+.mission-info { padding: 20px; }
+.mission-name { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+.mission-type {
+  font-size: 11px; color: #60a5fa; text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mission-desc {
+  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.7;
+  margin: 10px 0;
+}
+.mission-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag {
+  font-size: 10px; padding: 3px 10px; border-radius: 12px;
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   MOON PAGE
+   ======================================== */
+.moon-page { overflow-y: auto; min-height: 100vh; }
+.moon-section { padding-bottom: 60px; }
+.moon-page-inner { max-width: 1000px; margin: 0 auto; }
+
+.moon-model-container {
+  width: 100%; height: 400px; display: flex;
+  align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.moon-model-container model-viewer {
+  width: 100%; height: 100%;
+  --poster-color: transparent;
+}
+.moon-header { text-align: center; margin-bottom: 30px; }
+.moon-eyebrow {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 4px;
+  color: rgba(255,255,255,0.4); margin: 0 0 8px;
+}
+.moon-title {
+  font-size: 48px; font-weight: 700; margin: 0 0 8px;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.moon-subtitle {
+  font-size: 14px; color: rgba(255,255,255,0.35);
+  letter-spacing: 3px; margin: 0;
+}
+
+/* Moon Scene (CSS sphere) */
+.moon-scene {
+  position: relative; width: 220px; height: 220px;
+  margin: 0 auto 40px;
+}
+.moon-glow-outer, .moon-glow-mid {
+  position: absolute; border-radius: 50%;
+  left: 50%; top: 50%; transform: translate(-50%,-50%);
+}
+.moon-glow-outer {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(200,210,230,0.08) 0%, transparent 70%);
+}
+.moon-glow-mid {
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(200,210,230,0.12) 0%, transparent 60%);
+}
+.moon-3d-wrap {
+  position: absolute; inset: 0; display: flex;
+  align-items: center; justify-content: center;
+}
+.moon-3d {
+  width: 180px; height: 180px; border-radius: 50%;
+  position: relative; overflow: hidden;
+  background: radial-gradient(circle at 40% 35%, #d4d4d8, #a1a1aa, #52525b);
+  box-shadow: -10px 10px 30px rgba(0,0,0,0.6), 0 0 40px rgba(200,200,220,0.1);
+  animation: moonSpin 40s linear infinite;
+}
+@keyframes moonSpin { to { filter: hue-rotate(5deg); } }
+.moon-surface {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.15), transparent 60%);
+}
+.moon-craters { position: absolute; inset: 0; }
+.crater {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.15) 40%, transparent 70%);
+}
+.c1 { width: 30px; height: 30px; top: 30%; left: 25%; }
+.c2 { width: 20px; height: 20px; top: 55%; left: 60%; }
+.c3 { width: 15px; height: 15px; top: 20%; left: 65%; }
+.c4 { width: 25px; height: 25px; top: 65%; left: 30%; }
+.c5 { width: 12px; height: 12px; top: 40%; left: 45%; }
+.c6 { width: 18px; height: 18px; top: 75%; left: 55%; }
+.moon-terminator {
+  position: absolute; right: 0; top: 0; width: 50%; height: 100%;
+  border-radius: 0 50% 50% 0;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.4));
+}
+.moon-highlight {
+  position: absolute; width: 40px; height: 40px;
+  top: 20%; left: 25%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+}
+.moon-particle {
+  position: absolute; width: 3px; height: 3px;
+  background: rgba(255,255,255,0.3); border-radius: 50%;
+  animation: moonFloat 6s ease-in-out infinite;
+}
+.p1 { top: 20%; left: 10%; animation-delay: 0s; }
+.p2 { top: 70%; right: 10%; animation-delay: 2s; }
+.p3 { top: 40%; right: 5%; animation-delay: 4s; }
+@keyframes moonFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-12px); opacity: 0.8; }
+}
+.moon-stars { position: absolute; inset: 0; pointer-events: none; }
+
+/* Moon Stats */
+.moon-stats {
+  display: flex; justify-content: center; gap: 0;
+  margin: 0 auto 50px; padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+.moon-stat { text-align: center; padding: 0 32px; }
+.stat-val {
+  display: block; font-size: 28px; font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  display: block; font-size: 11px; color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px;
+}
+.moon-stat-divider {
+  width: 1px; background: rgba(255,255,255,0.1); align-self: stretch;
+}
+
+/* Moon Description Cards */
+.moon-descriptions { margin-top: 20px; }
+.moon-desc-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 20px;
+}
+.moon-desc-card {
+  padding: 28px; border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.moon-desc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200,200,220,0.2);
+}
+.moon-desc-icon { font-size: 28px; margin-bottom: 12px; }
+.moon-desc-title {
+  font-size: 15px; font-weight: 600; margin: 0 0 10px;
+  letter-spacing: 0.5px;
+}
+.moon-desc-content p, .moon-placeholder {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+  line-height: 1.7; margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .page-header { padding: 14px 20px; flex-direction: column; gap: 10px; }
+  .home-brand span { font-size: 28px; }
+  .home-grid { grid-template-columns: 1fr; }
+  .isro-title { font-size: 24px; }
+  .orbit-container { height: 380px; }
+  .sat-feature-grid { grid-template-columns: 1fr; }
+  .moon-title { font-size: 32px; }
+  .moon-stats { flex-direction: column; gap: 20px; }
+  .moon-stat-divider { width: 60px; height: 1px; margin: 0 auto; }
+  .moon-desc-grid { grid-template-columns: 1fr; }
+  .missions-grid { grid-template-columns: 1fr; }
 }
