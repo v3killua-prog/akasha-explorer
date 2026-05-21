@@ -232,7 +232,7 @@ const jupiterTex = canvasTex(1024,512,(ctx,w,h)=>{
   }
 });
 // Saturn
-const saturnTex = canvasTex(512,256,(ctx,w,h)=>{
+const saturnT = canvasTex(512,256,(ctx,w,h)=>{
   const bands2=['#d4a96a','#e8c87a','#c89555','#f0d890','#d4a060','#e8c070'];
   bands2.forEach((c,i)=>{ctx.fillStyle=c; ctx.fillRect(0,i*(h/bands2.length),w,h/bands2.length+1);});
   for(let i=0;i<800;i++){
