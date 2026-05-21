@@ -6,9 +6,10 @@
 <title>Akasha Explorer</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="pages.css"/>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Exo 2',sans-serif}
+  html,body{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;background:#000;font-family:'Exo 2',sans-serif}
   #canvas-container{position:fixed;inset:0;z-index:0}
   canvas{display:block;width:100%!important;height:100%!important}
 
@@ -53,6 +54,9 @@
     <a href="solar.html" style="font-size:0.9rem;letter-spacing:.1em;">Solar System</a>
     <a href="satellites.html" style="font-size:0.9rem;letter-spacing:.1em;">Satellites</a>
     <a href="moon.html" style="font-size:0.9rem;letter-spacing:.1em;">Moon</a>
+    <a href="galaxies.html" style="font-size:0.9rem;letter-spacing:.1em;">Galaxies</a>
+    <a href="blackholes.html" style="font-size:0.9rem;letter-spacing:.1em;">Black Holes</a>
+    <a href="stars.html" style="font-size:0.9rem;letter-spacing:.1em;">Stars</a>
   </nav>
 </div>
 
@@ -571,5 +575,33 @@ function animate(){
 }
 animate();
 </script>
+
+<!-- Interactive Models Section -->
+<div id="interactive-models-section">
+  <div class="interactive-models-container">
+    <div class="interactive-header">
+      <h2>Explore the Universe</h2>
+      <p>Discover more cosmic phenomena</p>
+    </div>
+    <div class="home-grid">
+      <a href="galaxies.html" class="home-card galaxies-card">
+        <div class="home-card-icon">🌌</div>
+        <h2>Galaxies</h2>
+        <p>Vast island universes composed of billions of stars, gas, and dust bound together by gravity.</p>
+      </a>
+      <a href="blackholes.html" class="home-card blackholes-card">
+        <div class="home-card-icon">⚫</div>
+        <h2>Black Holes</h2>
+        <p>Regions of spacetime where gravity is so extreme that nothing, not even light, can escape.</p>
+      </a>
+      <a href="stars.html" class="home-card stars-card">
+        <div class="home-card-icon">⭐</div>
+        <h2>Stars</h2>
+        <p>Massive luminous spheres of plasma held together by gravity, producing light and heat.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
