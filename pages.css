@@ -113,10 +113,10 @@
   border-radius: 18px;
   text-decoration: none;
   color: #fff;
-  transition: transform 0.35s, box-shadow 0.35s;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(6px);
+  transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(30, 30, 50, 0.6), rgba(20, 20, 40, 0.8));
+  backdrop-filter: blur(10px);
 }
 
 .home-card:hover {
@@ -1178,10 +1178,10 @@
 #interactive-models-section {
   position: relative;
   z-index: 10;
-  margin-top: 100vh;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(10, 10, 20, 0.8) 100%);
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 20, 0.95) 100%);
   backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
   padding: 80px 30px 60px;
 }
 
