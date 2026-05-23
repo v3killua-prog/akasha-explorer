@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" href="style.css" />
   <title>Akasha Explorer — Satellites</title>
 </head>
@@ -166,8 +165,8 @@
     <div class="satellite-feature-section">
       <h2 class="sat-feature-heading">Featured Satellite Model</h2>
       <div class="sat-feature-grid">
-        <div class="sat-feature-visual">
-          <iframe title="NISAR Satellite 3D model" src="https://sketchfab.com/models/0103309668d243dbbfab3c8fc6b9683c/embed" frameborder="0" allow="autoplay; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <div class="sat-feature-visual fallback">
+          <div class="sat-feature-placeholder-text">Interactive model unavailable offline.</div>
         </div>
         <div class="sat-feature-details">
           <h3>NISAR Satellite ISRO - NASA Joint Mission</h3>
@@ -197,8 +196,7 @@
       <div class="missions-grid">
 
         <div class="mission-card">
-          <div class="mission-img-wrap">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Gaganyaan_spacecraft_model.jpg/320px-Gaganyaan_spacecraft_model.jpg" alt="Gaganyaan" onerror="this.src='https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=400'">
+          <div class="mission-img-wrap gaganyaan">
             <div class="mission-badge upcoming">2025–26</div>
           </div>
           <div class="mission-info">
@@ -212,8 +210,7 @@
         </div>
 
         <div class="mission-card">
-          <div class="mission-img-wrap">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chandrayaan-3_logo.png/320px-Chandrayaan-3_logo.png" alt="Chandrayaan-4" onerror="this.src='https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400'">
+          <div class="mission-img-wrap chandrayaan">
             <div class="mission-badge future">2027</div>
           </div>
           <div class="mission-info">
@@ -227,8 +224,7 @@
         </div>
 
         <div class="mission-card">
-          <div class="mission-img-wrap">
-            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=400" alt="Shukrayaan">
+          <div class="mission-img-wrap shukrayaan">
             <div class="mission-badge future">2028</div>
           </div>
           <div class="mission-info">
@@ -242,8 +238,7 @@
         </div>
 
         <div class="mission-card">
-          <div class="mission-img-wrap">
-            <img src="https://images.unsplash.com/photo-1614726365952-510103b1bdb8?w=400" alt="Mangalyaan-2">
+          <div class="mission-img-wrap mangalyaan">
             <div class="mission-badge future">2030</div>
           </div>
           <div class="mission-info">

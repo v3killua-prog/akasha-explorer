@@ -5,17 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Akasha Explorer</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="pages.css"/>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;background:#000;font-family:'Exo 2',sans-serif}
-  #canvas-container{position:fixed;inset:0;z-index:-1}
-  canvas{display:block;width:100%!important;height:100%!important}
+  html,body{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;background:#000;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}
+  #canvas-container{position:fixed;inset:0;z-index:10;display:block;width:100%;height:100%}
+  canvas{display:block;width:100% !important;height:100% !important}
 
   /* Header */
   #header{position:fixed;top:0;left:0;z-index:100;padding:22px 32px;display:flex;align-items:center;gap:14px}
-  #header a{font-family:'Orbitron',monospace;font-weight:900;font-size:1.35rem;letter-spacing:.18em;text-decoration:none;color:#fff;text-shadow:0 0 24px #f97316,0 0 48px #fb923c55;transition:text-shadow .3s}
+  #header a{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:900;font-size:1.35rem;letter-spacing:.18em;text-decoration:none;color:#fff;text-shadow:0 0 24px #f97316,0 0 48px #fb923c55;transition:text-shadow .3s}
   #header a:hover{text-shadow:0 0 30px #fb923c,0 0 70px #f9731666}
   .dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fde68a,#f97316);box-shadow:0 0 12px #f97316,0 0 24px #fb923c;animation:pulse 2s ease-in-out infinite}
   @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}
@@ -83,7 +82,7 @@
 <script>
 // ── Utility ──────────────────────────────────────────────────────────────────
 const canvas = document.getElementById('c');
-const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false});
 renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -91,6 +90,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.9;
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x001a1a);
 const camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.01, 10000);
 camera.position.set(0, 60, 160);
 camera.lookAt(0,0,0);
@@ -305,9 +305,10 @@ const neptuneT = canvasTex(512,256,(ctx,w,h)=>{
 })();
 
 // ── Lighting ─────────────────────────────────────────────────────────────────
-const sunLight=new THREE.PointLight('#fff5e0',3.5,2000,1.2);
+const sunLight=new THREE.PointLight('#fff5e0',4.5,2500,1.2);
+sunLight.position.set(0,0,0);
 scene.add(sunLight);
-const ambLight=new THREE.AmbientLight('#0a0a20',.18);
+const ambLight=new THREE.AmbientLight('#ffffff',.45);
 scene.add(ambLight);
 
 // ── Sun ───────────────────────────────────────────────────────────────────────
@@ -351,7 +352,7 @@ const planets=[]; let earthPlanet=null;
 
 planetDefs.forEach(def=>{
   const geo=new THREE.SphereGeometry(def.r,48,48);
-  const mat=new THREE.MeshStandardMaterial({map:def.tex,roughness:.85,metalness:.05});
+  const mat=new THREE.MeshStandardMaterial({map:def.tex,roughness:.7,metalness:.1});
   const mesh=new THREE.Mesh(geo,mat);
   mesh.receiveShadow=true; mesh.castShadow=true;
   mesh.rotation.z=THREE.MathUtils.degToRad(def.tilt);
