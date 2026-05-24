@@ -1177,7 +1177,7 @@
    ======================================== */
 #interactive-models-section {
   position: relative;
-  z-index: 10;
+  z-index: 50;
   width: 100%;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 20, 0.95) 100%);
   backdrop-filter: blur(8px);
@@ -1229,6 +1229,21 @@
 .stars-card:hover {
   border-color: rgba(250, 204, 21, 0.4);
   box-shadow: 0 20px 50px rgba(250, 204, 21, 0.15);
+}
+
+.solar-card:hover {
+  border-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 0 20px 50px rgba(251, 146, 60, 0.15);
+}
+
+.satellites-card:hover {
+  border-color: rgba(99, 200, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(99, 200, 255, 0.15);
+}
+
+.moon-card:hover {
+  border-color: rgba(200, 200, 220, 0.4);
+  box-shadow: 0 20px 50px rgba(200, 200, 220, 0.15);
 }
 
 /* Responsive adjustments */
