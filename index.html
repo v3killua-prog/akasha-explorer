@@ -30,7 +30,8 @@
       z-index: 1;
       display: block;
       width: 100%;
-      height: 100%
+      height: 100%;
+      transition: opacity 0.4s ease;
     }
 
     canvas {
@@ -754,7 +755,14 @@
   <div id="spacer-for-cards" style="height: 100vh; position: relative; z-index: 5; pointer-events: none;"></div>
 
   <!-- Interactive Models Section -->
-  <div id="interactive-models-section">
+  <div id="interactive-models-section" style="
+    position: relative;
+    z-index: 9999;
+    background: #000d1a;
+    isolation: isolate;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  ">
     <div class="interactive-models-container">
       <div class="interactive-header">
         <h2>Explore the Universe</h2>
@@ -799,27 +807,46 @@
   </div>
 
   <script>
-    // Toggle canvas pointer-events based on scroll position so cards are clickable
+    // Handle scroll: fade canvas out as user enters cards section
     const canvasContainer = document.getElementById('canvas-container');
     const overlay = document.getElementById('overlay');
     const hud = document.getElementById('hud');
 
     function handleScrollPointerEvents() {
       const scrollY = window.scrollY || window.pageYOffset;
-      const threshold = window.innerHeight * 0.5;
-      if (scrollY > threshold) {
+      const vh = window.innerHeight;
+
+      // Fade starts at 60% of viewport height, fully gone at 100vh
+      const fadeStart = vh * 0.6;
+      const fadeEnd   = vh * 1.0;
+
+      if (scrollY >= fadeEnd) {
+        // Fully in cards zone — hide canvas completely (removes GPU compositing conflict)
+        canvasContainer.style.opacity = '0';
+        canvasContainer.style.visibility = 'hidden';
         canvasContainer.style.pointerEvents = 'none';
-        if (overlay) overlay.style.pointerEvents = 'none';
         hud.style.opacity = '0';
         hud.style.pointerEvents = 'none';
+      } else if (scrollY >= fadeStart) {
+        // Fading zone — interpolate opacity
+        const progress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+        canvasContainer.style.opacity = String(1 - progress);
+        canvasContainer.style.visibility = 'visible';
+        canvasContainer.style.pointerEvents = 'none';
+        hud.style.opacity = String((1 - progress) * 0.5);
+        hud.style.pointerEvents = 'none';
       } else {
+        // Full solar system view
+        canvasContainer.style.opacity = '1';
+        canvasContainer.style.visibility = 'visible';
         canvasContainer.style.pointerEvents = 'auto';
-        if (overlay) overlay.style.pointerEvents = 'none'; // overlay was always pointer-events:none
+        if (overlay) overlay.style.pointerEvents = 'none';
         hud.style.opacity = '';
         hud.style.pointerEvents = '';
       }
     }
-    window.addEventListener('scroll', handleScrollPointerEvents);
+
+    window.addEventListener('scroll', handleScrollPointerEvents, { passive: true });
     handleScrollPointerEvents();
   </script>
 
